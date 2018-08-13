@@ -1,0 +1,21 @@
+# skip cache files
+
+*.pyc
+/__pycache__
+/tests/__pycache__
+/honeypots/__pycache__
+/containers/__pycache__
+
+# skip sphinx site build files
+
+/docs/build/
+/docs/source/_static/
+/docs/source/_templates/
+
+# skip PyCharm files
+
+/.idea
+
+# skip accept file
+
+.accepted

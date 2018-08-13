@@ -1,0 +1,33 @@
+language: python
+sudo: required
+
+python:
+  - 3.6
+
+services:
+  - docker
+
+install:
+  # install newer vesrsion of nmap
+  - sudo apt-get install build-essential checkinstall libpcre3-dev liblua5.2-dev
+  - mkdir nmap_build
+  - cd nmap_build
+  - wget http://nmap.org/dist/nmap-7.01.tar.bz2
+  - tar xvjf nmap-7.01.tar.bz2
+  - cd nmap-7.01
+  - ./configure
+  - make
+  - echo "y" > inputfile && echo "port scanner" >> inputfile && echo $'\n' >> inputfile && echo "n" >> inputfile && echo "y" >> inputfile
+  - sudo checkinstall < inputfile
+  - cd ../..
+  - nmap --version
+
+  - pip install -r requirements.txt
+
+  # copy any required config options for the docker daemon
+  #- sudo cp .travis_docker_config /etc/docker/daemon.json
+  #- sudo service docker restart
+  # - docker image build --tag checkpot .
+
+script:
+  - python containers/build_all.py && python ci_automated_tests.py
