@@ -5,7 +5,7 @@
 Honeypot Checker
 
 [![Build Status](https://travis-ci.org/honeynet/checkpot.svg?branch=master)](https://travis-ci.org/honeynet/checkpot.svg?branch=master)
-[![Documentation Status](https://readthedocs.org/projects/checkpot-honeynet/badge/?version=latest)](https://checkpot-honeynet.readthedocs.io/en/latest/?badge=latest)
+[![Documentation Status](https://readthedocs.org/projects/checkpot/badge/?version=latest)](https://checkpot.readthedocs.io/en/latest/?badge=latest)
 
 <br />
 <br />
