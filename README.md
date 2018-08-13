@@ -4,7 +4,7 @@
 
 Honeypot Checker
 
-[![Build Status](https://travis-ci.org/vladalexgit/checkpot.svg?branch=master)](https://travis-ci.org/vladalexgit/checkpot)
+[![Build Status](https://travis-ci.org/honeynet/checkpot.svg?branch=master)](https://travis-ci.org/honeynet/checkpot.svg?branch=master)
 [![Documentation Status](https://readthedocs.org/projects/checkpot-honeynet/badge/?version=latest)](https://checkpot-honeynet.readthedocs.io/en/latest/?badge=latest)
 
 <br />
@@ -66,8 +66,6 @@ A typical usage example would be: `python checkpot.py -t <IP> -l 3`
 ## Documentation
 
 You can read the documentation [here](https://checkpot.readthedocs.io/en/master/).
-
-If you still have doubts on how something works you can contact us anytime on the [official Honeynet slack channel](https://honeynetpublic.slack.com/) or open an issue here on github. We are here to help.
 
 ## Contributions
 
