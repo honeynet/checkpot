@@ -83,7 +83,10 @@ class HTTPTest(Test):
 
             self.set_result(TestResult.OK, "HTTP implemented")
 
-        except Exception as e:
+        except socket.timeout as e:
+            self.set_result(TestResult.WARNING,"Connection Timeout", e.strerror)
+            return
+        
             # as a fallback measure run a manual test
             # TODO extend this
 
@@ -102,7 +105,11 @@ class HTTPTest(Test):
                 self.set_result(TestResult.WARNING, "sending GET request to http server failed: ", exception.strerror)
                 return
 
-            recv = s.recv(4096)
+            try:
+                recv = s.recv(4096)
+            except Exception as e:
+                self.set_result(TestResult.WARNING,"recv failed after GET request to HTTP sever", e.strerror)
+                return
 
             if recv[:15] == b'HTTP/1.1 200 OK':
                 self.set_result(TestResult.OK, "http service responded with 200/OK")
