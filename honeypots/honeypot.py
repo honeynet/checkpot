@@ -95,6 +95,8 @@ class Honeypot:
 
         args = '-sV -n --stats-every 1s'
 
+       
+        print("port range is "+ port_range)
         if fast:
             args += ' -Pn -T5'
 
@@ -104,7 +106,7 @@ class Honeypot:
         if self.scan_os:
 
             args += ' -O'
-
+        
             if platform.system() == 'Windows':
                 # No sudo on Windows systems, let UAC handle this
                 # FIXME workaround for the subnet python-nmap-bug.log also?
@@ -123,6 +125,7 @@ class Honeypot:
 
             try:
                 # FIXME this is just a workaround for the bug shown in python-nmap-bug.log
+                print("address " + self.address + " " + "args " + args )
                 self._nm.scan(hosts=self.address, arguments=args, sudo=False)
             except Exception as e:
                 if self.__debug:

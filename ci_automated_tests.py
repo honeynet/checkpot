@@ -250,7 +250,8 @@ def main():
                       default_telnet.DefaultTelnetBannerTest(): TestResult.NOT_APPLICABLE,
                       old_version_bugs.KippoErrorMessageBugTest(): TestResult.NOT_APPLICABLE,
                       default_templates.DefaultTemplateFileTest(): TestResult.NOT_APPLICABLE
-                  })
+                  },
+                  port_range='-')
 
     # test conpot
     honeypot_test('conpot',

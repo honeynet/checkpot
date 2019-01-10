@@ -1,8 +1,9 @@
+dist: xenial
 language: python
 sudo: required
 
 python:
-  - 3.6
+  - 3.6.5
 
 services:
   - docker
@@ -10,17 +11,8 @@ services:
 install:
   # install newer vesrsion of nmap
   - sudo apt-get install build-essential checkinstall libpcre3-dev liblua5.2-dev
-  - mkdir nmap_build
-  - cd nmap_build
-  - wget http://nmap.org/dist/nmap-7.01.tar.bz2
-  - tar xvjf nmap-7.01.tar.bz2
-  - cd nmap-7.01
-  - ./configure
-  - make
-  - echo "y" > inputfile && echo "port scanner" >> inputfile && echo $'\n' >> inputfile && echo "n" >> inputfile && echo "y" >> inputfile
-  - sudo checkinstall < inputfile
-  - cd ../..
-  - nmap --version
+  - sudo apt-get update
+  - sudo apt-get install nmap
 
   - pip install -r requirements.txt
 
